@@ -1,0 +1,61 @@
+# Valentine-<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Be My Valentine 💖</title>
+  <style>
+    body {
+      background-color: #ffd6e8;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    h1 { color: #c9184a; }
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 10px;
+    }
+    .yes-button { background-color: #38b000; color: white; }
+    .no-button { background-color: #d00000; color: white; }
+  </style>
+</head>
+
+<body>
+  <h1>Will you be my Valentine? 💝</h1>
+
+  <button class="yes-button" onclick="handleYesClick()">Yes 💕</button>
+  <button class="no-button" onclick="handleNoClick()">No 😢</button>
+
+  <script>
+    const messages = [
+      "Are you sure? 😭",
+      "Pleaseeee 🥺",
+      "Don't break my heart 💔",
+      "Think again 😭",
+      "Last chance 😔"
+    ];
+    let messageIndex = 0;
+
+    function handleNoClick() {
+      const noButton = document.querySelector(".no-button");
+      const yesButton = document.querySelector(".yes-button");
+      noButton.textContent = messages[messageIndex];
+      messageIndex = (messageIndex + 1) % messages.length;
+      const size = parseFloat(getComputedStyle(yesButton).fontSize);
+      yesButton.style.fontSize = `${size * 1.4}px`;
+    }
+
+    function handleYesClick() {
+      window.location.href = "yes.html";
+    }
+  </script>
+</body>
+</html>
